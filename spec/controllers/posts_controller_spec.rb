@@ -32,9 +32,9 @@ describe PostsController do
 
   describe "GET index" do
     it "assigns all posts as @posts" do
-      post = Post.create! valid_attributes
+      posts = Post.all
       get :index, {}, valid_session
-      assigns(:posts).should eq([post])
+      assigns(:posts).should eq(posts)
     end
   end
 

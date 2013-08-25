@@ -6,6 +6,9 @@
 %p
   %b Body:
   = @post.body
+%p
+  %b Published:
+  = @post.published?
 
 = link_to 'Edit', edit_post_path(@post)
 \|

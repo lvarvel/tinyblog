@@ -13,9 +13,11 @@
 
 ActiveRecord::Schema.define(version: 20130813222648) do
 
-  create_table "posts", force: true do |t|
+  create_table "posts", id: false, force: true do |t|
+    t.uuid     "id",         null: false
     t.string   "title"
     t.text     "body"
+    t.boolean  "published"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
