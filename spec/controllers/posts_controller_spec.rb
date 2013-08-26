@@ -2,8 +2,9 @@ require 'spec_helper'
 
 describe PostsController do
   describe "GET index" do
-    it "assigns all posts as @posts" do
-      posts = Post.all
+    it "assigns gets the front page posts as @posts" do
+      posts = double(:posts)
+      Post.stub(:front_page_posts).and_return(posts)
       get :index, {}
       assigns(:posts).should eq(posts)
     end

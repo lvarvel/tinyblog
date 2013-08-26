@@ -19,7 +19,7 @@ class Admin::PostsController < Admin::ApplicationController
     @post = Post.new(post_params)
 
     respond_to do |format|
-      if @post.save
+      if @post.publish
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
         format.json { render action: 'show', status: :created, location: @post }
       else
@@ -33,7 +33,8 @@ class Admin::PostsController < Admin::ApplicationController
   # PATCH/PUT /posts/1.json
   def update
     respond_to do |format|
-      if @post.update(post_params)
+        @post.update(post_params)
+      if @post.publish
         format.html { redirect_to @post, notice: 'Post was successfully updated.' }
         format.json { head :no_content }
       else

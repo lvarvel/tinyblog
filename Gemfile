@@ -54,5 +54,6 @@ group :test, :development do
   gem "factory_girl_rails"
   gem "fixture_builder"
   gem "shoulda-matchers"
+  gem "timecop"
 end
 
