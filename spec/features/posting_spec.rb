@@ -9,7 +9,7 @@ describe 'Posting' do
   end
 
   it 'allows logged in users to create a post' do
-    visit '/posts/new'
+    visit '/admin/posts/new'
     fill_in 'Title', with: 'How to tickle a wombat'
     fill_in 'Body', with: 'First, you need a feather and a potato cannon.'
     check 'Published'

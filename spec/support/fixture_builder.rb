@@ -8,6 +8,6 @@ FixtureBuilder.configure do |fbuilder|
 
   # now declare objects
   fbuilder.factory do
-    name(:first, Post.create(title: 'Intro to object oriented INTERCAL', body: "Do you hate programming? You will, after this simple tutorial!", published: true))
+    first = name(:intro, Post.create(title: 'Intro to object oriented INTERCAL', body: "Do you hate programming? You will, after this simple tutorial!", published: true))
   end
 end
