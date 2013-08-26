@@ -5,9 +5,9 @@ Tinyblog::Application.routes.draw do
     # resources :users
     resources :posts
 
-    # get :login, to: 'sessions#new'
-    # post :login, to: 'sessions#create'
-    # delete :logout, to: 'sessions#destroy'
+    get :login, to: 'sessions#new'
+    post :login, to: 'sessions#create'
+    delete :logout, to: 'sessions#destroy'
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

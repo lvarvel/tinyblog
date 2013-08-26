@@ -1,0 +1,27 @@
+!!! 5
+%html
+  %head
+    %title
+      Tiny Blog
+    = stylesheet_link_tag    "application", :media => "all"
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = csrf_meta_tags
+
+  %body
+    = render(partial: 'partials/environment_badge') unless Rails.env.production?
+
+    %header
+      .row
+        - if @current_user
+          .logout.one.mobile.twelfth.pad-right.align-right
+            = link_to [:admin, :logout], method: :delete do
+              .button
+                Logout
+
+    .subheader.row
+      .mobile.ten.twelfths.skip-one
+        = yield(:subheader)
+
+    = render(partial: 'partials/flash')
+    .content
+      = yield

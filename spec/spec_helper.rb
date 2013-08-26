@@ -8,6 +8,7 @@ require 'headless'
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
+Dir[Rails.root.join("spec/example_groups/**/*.rb")].each { |f| require f }
 Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
 # Checks for pending migrations before tests are run.
@@ -55,4 +56,6 @@ RSpec.configure do |config|
 
   # Make specs a little nicer to read
   config.treat_symbols_as_metadata_keys_with_true_values = true
+
+  config.include FeatureExampleGroup, :type => :feature
 end

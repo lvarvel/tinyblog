@@ -1,9 +1,14 @@
 require 'spec_helper'
 
 describe Admin::PostsController do
+  let(:user) { users(:user) }
   let(:valid_attributes) { { "title" => "MyString" } }
 
-  let(:valid_session) { {} }
+  let(:valid_session) { {user_id: user.id} }
+
+  before do
+    User.stub(:find_by_id).with(user.id).and_return(user)
+  end
 
   describe "GET new" do
     it "assigns a new post as @post" do

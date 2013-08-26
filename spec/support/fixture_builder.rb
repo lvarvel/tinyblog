@@ -8,6 +8,7 @@ FixtureBuilder.configure do |fbuilder|
 
   # now declare objects
   fbuilder.factory do
-    first = name(:intro, Post.create(title: 'Intro to object oriented INTERCAL', body: "Do you hate programming? You will, after this simple tutorial!", published: true))
+    first = name(:intro, create(:post, title: 'Intro to object oriented INTERCAL', body: "Do you hate programming? You will, after this simple tutorial!", published: true))
+    default_user = name(:user, create(:user, email: 'first_admin@example.com', password: 'password', password_confirmation: 'password'))
   end
 end

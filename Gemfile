@@ -51,7 +51,8 @@ group :test, :development do
   gem "guard-rspec"
   gem "capybara-webkit"
   gem "headless"
-  gem "factory_girl"
+  gem "factory_girl_rails"
   gem "fixture_builder"
+  gem "shoulda-matchers"
 end
 

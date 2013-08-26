@@ -1,15 +1,15 @@
 module Admin
   class ApplicationController < ::ApplicationController
-    # before_filter :require_admin
+    before_filter :require_user
 
-    # def current_admin
-    #   @current_admin ||= Administrator.find_by_id(session[:admin_id])
-    # end
+    def current_user
+      @current_user ||= User.find_by_id(session[:user_id])
+    end
 
-    # private
+    private
 
-  #   def require_admin
-  #     redirect_to [:admin, :login] unless current_admin
-  #   end
+    def require_user
+      redirect_to [:admin, :login] unless current_user
+    end
   end
 end
