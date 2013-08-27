@@ -4,9 +4,9 @@
 .posts.padded.four.sixths.skip-one
   - @posts.each do |post|
     %h2
-      = post.title
+      = post.title.html_safe
     %p
-      = post.body
+      = post.body.html_safe
     %br
     %hr
     %br
