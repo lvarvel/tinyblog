@@ -3,10 +3,15 @@
 
 .posts.padded.four.sixths.skip-one
   - @posts.each do |post|
-    %h2
+    %h2.title
       = post.title.html_safe
     .byline
-      = post.author.name
+      Written  by
+      %span.author_name
+        = post.author.name
+      on
+      %span.published_date
+        = post.published_at.strftime("%B #{post.published_at.day.ordinalize}, %Y")
     %p
       = post.body.html_safe
     %br
