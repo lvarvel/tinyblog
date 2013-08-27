@@ -3,8 +3,12 @@
   %head
     %title
       Tiny Blog
-    = stylesheet_link_tag    "application", :media => "all"
-    = javascript_include_tag "application", "data-turbolinks-track" => true
+    - if Rails.env == 'Production'
+      = stylesheet_link_tag "blog/application", :media => "all"
+      = javascript_include_tag "blog/application", "data-turbolinks-track" => true
+    - else
+      = stylesheet_link_tag "application", :media => "all"
+      = javascript_include_tag "application", "data-turbolinks-track" => true
     = csrf_meta_tags
 
   %body
