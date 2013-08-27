@@ -2,7 +2,8 @@ require 'spec_helper'
 
 describe Post do
   describe '#publish' do
-    let(:post) { build(:post, published: true, published_at: '') }
+    let(:author) { users(:user) }
+    let(:post) { build(:post, published: true, published_at: '', author: author) }
 
     around do |example|
       Timecop.freeze

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130826035812) do
+ActiveRecord::Schema.define(version: 20130827065311) do
 
   create_table "posts", id: false, force: true do |t|
     t.uuid     "id",           null: false
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20130826035812) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.datetime "published_at"
+    t.integer  "user_id"
   end
 
   create_table "users", force: true do |t|
@@ -28,6 +29,7 @@ ActiveRecord::Schema.define(version: 20130826035812) do
     t.string   "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name"
   end
 
 end

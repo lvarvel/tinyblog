@@ -17,6 +17,7 @@ class Admin::PostsController < Admin::ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(post_params)
+    @post.author = current_user
 
     respond_to do |format|
       if @post.publish

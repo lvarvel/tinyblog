@@ -5,6 +5,8 @@
   - @posts.each do |post|
     %h2
       = post.title.html_safe
+    .byline
+      = post.author.name
     %p
       = post.body.html_safe
     %br

@@ -1,13 +1,6 @@
 require 'spec_helper'
 
 describe 'Posting', :js do
-
-  it 'shows the most recent post on the landing page' do
-    visit '/'
-    page.should have_content 'INTERCAL'
-    page.should have_content 'hate programming'
-  end
-
   context 'when logged in' do
      before do
       visit '/admin/login'

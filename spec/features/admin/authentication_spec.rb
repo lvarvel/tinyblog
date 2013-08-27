@@ -2,14 +2,6 @@ require 'spec_helper'
 
 describe "Administrator Login/Logout" do
 
-  let(:user) {
-    User.create do |u|
-      u.email = "admin@example.com"
-      u.password = "secret_code"
-      u.password_confirmation = "secret_code"
-    end
-  }
-
   it "requires a login to visit the admin area" do
     visit "/admin/posts"
 
@@ -20,7 +12,7 @@ describe "Administrator Login/Logout" do
     visit "/admin/login"
 
     #failure case
-    fill_in :user_email, with: user.email
+    fill_in :user_email, with: 'first_admin@example.com'
     fill_in :user_password, with: "secret_FAIL"
 
     click_button "Log In"
@@ -30,8 +22,8 @@ describe "Administrator Login/Logout" do
     page.should have_content("Login failed")
 
     #success case
-    fill_in :user_email, with: "admin@example.com"
-    fill_in :user_password, with: "secret_code"
+    fill_in :user_email, with: "first_admin@example.com"
+    fill_in :user_password, with: "password"
 
     click_button "Log In"
 
@@ -39,7 +31,11 @@ describe "Administrator Login/Logout" do
   end
 
   it "can log out" do
-    log_in(user)
+    visit "/admin/login"
+    fill_in :user_email, with: "first_admin@example.com"
+    fill_in :user_password, with: "password"
+
+    click_button "Log In"
 
     click_link "Logout"
     current_path.should == '/admin/login'

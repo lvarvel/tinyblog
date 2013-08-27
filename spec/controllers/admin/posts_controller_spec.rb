@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Admin::PostsController do
   let(:user) { users(:user) }
-  let(:valid_attributes) { { "title" => "MyString" } }
+  let(:valid_attributes) { { "title" => "MyString", published: true } }
 
   let(:valid_session) { {user_id: user.id} }
 
@@ -37,6 +37,12 @@ describe Admin::PostsController do
         post :create, {:post => valid_attributes}, valid_session
         assigns(:post).should be_a(Post)
         assigns(:post).should be_persisted
+      end
+
+      it "publishes the post and records the author" do
+        post :create, {:post => valid_attributes}, valid_session
+        assigns(:post).author.should == user
+        assigns(:post).published_at.should_not be_blank
       end
 
       it "redirects to the posts list" do

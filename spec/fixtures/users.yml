@@ -1,7 +1,8 @@
 ---
 user:
-  id: 6
+  id: 45
   email: first_admin@example.com
-  password_digest: $2a$04$gG5UgEhmheQAgSbQ70g7te98julFYamUhOUS0vMnDgozVwlMLz1I.
-  created_at: 2013-08-26 03:59:12.629125000 Z
-  updated_at: 2013-08-26 03:59:12.629125000 Z
+  password_digest: $2a$04$KOFEkiznPQ1A/3I77RSryOniL3lIGTBgl4XmA2dMIJ1i2a8sLZDSW
+  created_at: 2013-08-27 12:46:23.141320000 Z
+  updated_at: 2013-08-27 12:46:23.141320000 Z
+  name: Eve

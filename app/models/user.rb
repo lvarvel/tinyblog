@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
 
   validates :password, length: {minimum: 4}, if: :validate_password?
   validates :email, presence: true, uniqueness: true, format: /.@./
+  validates :name, presence: true, uniqueness: true
 
   def self.authenticate_with_email_and_password(email, password)
     user = find_by_email(email)

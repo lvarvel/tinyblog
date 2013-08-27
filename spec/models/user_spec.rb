@@ -6,6 +6,9 @@ describe User do
     #shoulda matchers aren't totally Rails 4 compatible yet (8/25/2013)
     xit { should validate_confirmation_of :password }
 
+    it { should validate_presence_of :name }
+    it { should validate_uniqueness_of :name }
+
     it { should validate_presence_of :email }
     it { should validate_uniqueness_of :email }
 
@@ -26,15 +29,11 @@ describe User do
     end
 
     describe "with an existing record and a non-empty password" do
-      subject do
-        FactoryGirl.create(:user).tap do |user|
-          user.password = "pwd"
-          user.password_confirmation = "pwd"
-        end
-      end
+      let(:user) { users(:user) }
 
       it "validates presence of password" do
-        subject.should_not be_valid
+        user.password = 'pwd'
+        user.should_not be_valid
       end
     end
   end
