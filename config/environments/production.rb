@@ -1,6 +1,10 @@
 Tinyblog::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  # Serve the app from host/blog
+  config.root_directory = '/blog'
+  config.assets.prefix = '/blog/assets/'
+
   # Code is not reloaded between requests.
   config.cache_classes = true
 
