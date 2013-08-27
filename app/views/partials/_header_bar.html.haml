@@ -1,0 +1,20 @@
+#HeaderBar
+  - if @current_user
+    .row  
+      .logout.one.mobile.twelfth.pad-right.align-right
+        = link_to [:admin, :logout], method: :delete do
+          .button
+            Logout
+  .row.padded
+    .four.sixths.skip-one
+      %h1#BlogName
+        %a{href: posts_path}
+          = image_tag('white_cat.png', height: '30px', class: 'pull-left')
+          The Tiny Cat Blog
+    .one.sixth
+      .link_back.pull-left
+        %a{href: 'http://tinycatloans.com'}
+          .tagline
+            Another fine product by
+          .product_link
+            Tiny Cat Loans
