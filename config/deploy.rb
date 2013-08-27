@@ -33,11 +33,18 @@ after 'deploy:restart', 'unicorn:restart'
 after "deploy:restart", "deploy:cleanup"
 
 before "deploy:assets:precompile", "deploy:create_symlinks"
+before "deploy:assets:precompile", "deploy:relocate_assets"
 
 namespace 'deploy' do
   desc "Deploys symlinks for things like database.yml"
   task :create_symlinks, roles: :app  do
     run "ln -s #{shared_path}/config/database.yml #{latest_release}/config/database.yml"
+  end
+
+  desc "Repoints the assets compilation directory to the shared one"
+  task :relocate_assets, roles: :app  do
+    run "mkdir #{latest_release}/public/blog"
+    run "ln -s #{shared_path}/assets #{latest_release}/public/blog/assets"
   end
 end
 
