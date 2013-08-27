@@ -1,19 +1,19 @@
-%h1.padded.four.sixths.skip-one
+%h1.padded.four.sixths.skip-one.blog_name
   The Tiny Cat Blog
 
 .posts.padded.four.sixths.skip-one
   - @posts.each do |post|
-    %h2.title
-      = post.title.html_safe
-    .byline
-      Written  by
-      %span.author_name
-        = post.author.name
-      on
-      %span.published_date
-        = post.published_at.strftime("%B #{post.published_at.day.ordinalize}, %Y")
-    %p
-      = post.body.html_safe
-    %br
-    %hr
-    %br
+    .post
+      %h2.title
+        = post.title.html_safe
+      .byline
+        Written  by
+        %span.author_name
+          = post.author.name
+        on
+        %span.published_date
+          = post.published_at.strftime("%B #{post.published_at.day.ordinalize}, %Y")
+      .post_body
+        = post.body.html_safe
+
+      %hr
