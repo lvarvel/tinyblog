@@ -39,10 +39,10 @@ describe Admin::PostsController do
         assigns(:post).should be_persisted
       end
 
-      it "redirects to the created post" do
+      it "redirects to the posts list" do
         post :create, {:post => valid_attributes}, valid_session
         post = assigns(:post)
-        response.should redirect_to(post_path(post))
+        response.should redirect_to(admin_posts_path)
       end
     end
 
@@ -81,10 +81,10 @@ describe Admin::PostsController do
         assigns(:post).should eq(post)
       end
 
-      it "redirects to the post" do
+      it "redirects to the admin posts list" do
         post = Post.create! valid_attributes
         put :update, {:id => post.to_param, :post => valid_attributes}, valid_session
-        response.should redirect_to(post)
+        response.should redirect_to(admin_posts_path)
       end
     end
 
