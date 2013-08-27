@@ -1,10 +1,6 @@
 require 'spec_helper'
 
 describe Post do
-  describe 'before filters' do
-    it 'publishes the post before saving if published is true' do
-    end
-  end
   describe '#publish' do
     let(:post) { build(:post, published: true, published_at: '') }
 
