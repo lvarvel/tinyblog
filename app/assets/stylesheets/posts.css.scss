@@ -38,12 +38,17 @@
       font-size: 0.9em;
       font-style: italic;
       line-height: 1.0em;
-      color: #444;
+      color: #333;
       padding: 1em;
       margin-top: 1em;
       margin-bottom: 1em;
       border-left:3px solid #999;
       background:#EFEFEF;
+
+      footer {
+        color: #555;
+        font-size: 0.8em;
+      }
     }
 
     blockquote cite {
